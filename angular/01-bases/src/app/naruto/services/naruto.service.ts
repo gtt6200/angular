@@ -21,4 +21,8 @@ export class NarutoService{
         return [...this._listarPersonajes];
     }
     constructor(){ }
+
+    agregarPersonaje ( data: Personaje){
+        this._listarPersonajes.push(data);
+    }
 }
