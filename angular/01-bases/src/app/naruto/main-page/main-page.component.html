@@ -9,7 +9,7 @@
         <hr>
         <ul>
             <li *ngFor="let nombre of listarPersonajes; let j=index">
-               {{j+1}} {{nombre.nombre}} - {{nombre.poder}}
+               {{j+1}} {{nombre.nombre}} - {{nombre.poder | number}}
             </li>
         </ul>
     </div>
