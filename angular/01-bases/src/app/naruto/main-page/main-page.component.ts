@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Personaje } from '../interfaces/naruto.interface';
 
 @Component({
@@ -20,21 +20,12 @@ export class MainPageComponent {
       poder:500
     }
   ]
-  nuevo : Personaje = {
-    nombre: '',
-    poder: 0,
+nuevo : Personaje = {
+  nombre: 'Jiraiya',
+  poder: 1000
+}
+  agregarNuevoPersonaje(argumento : Personaje){
+    this.listarPersonajes.push(argumento);
+    
   }
-
-  agregar(){
-    if (this.nuevo.nombre.trim().length === 0) {
-      return;
-    }
-    console.log(this.nuevo);
-    this.listarPersonajes.push(this.nuevo);
-    this.nuevo = {
-      nombre: '',
-      poder: 0
-    };
-  }
-  
 }
