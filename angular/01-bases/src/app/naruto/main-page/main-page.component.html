@@ -6,13 +6,12 @@
 <div class="row">
     <div class="col" >
         <h3>Personajes</h3>
-        <app-personajes [data]="listarPersonajes">
+        <app-personajes>
         </app-personajes>
     </div>
     <div class="col">
         <app-agregar 
         [nuevo]="nuevo"
-        (onNuevoPersonaje)="agregarNuevoPersonaje( $event )"
         ></app-agregar>
 
     </div>

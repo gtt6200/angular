@@ -9,24 +9,10 @@ import { NarutoService } from '../services/naruto.service';
 })
 export class MainPageComponent {
 
-  listarPersonajes: Personaje []=[
-    {
-      nombre: 'Naruto',
-      poder: 17000
-    },{
-      nombre: 'Sasuke',
-      poder: 15000
-    },{
-      nombre: 'Sakura',
-      poder:500
-    }
-  ]
 nuevo : Personaje = {
   nombre: 'Jiraiya',
   poder: 1000
 }
-  agregarNuevoPersonaje(argumento : Personaje){
-    this.listarPersonajes.push(argumento);
-  }
-  constructor( private NarutoService : NarutoService){}
+
+  constructor(){}
 }
