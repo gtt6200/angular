@@ -8,10 +8,10 @@ import { HeroesModule } from './heroes/heroes.module';
 import { ContadorModule } from './contador/contador.module';
 import { NarutoModule } from './naruto/naruto.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,

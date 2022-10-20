@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface personaje{
-  nombre: string;
-  poder: number;
-}
+import { Personaje } from '../interfaces/naruto.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -12,7 +8,7 @@ interface personaje{
 })
 export class MainPageComponent {
 
-  listarPersonajes: personaje []=[
+  listarPersonajes: Personaje []=[
     {
       nombre: 'Naruto',
       poder: 17000
@@ -24,7 +20,7 @@ export class MainPageComponent {
       poder:500
     }
   ]
-  nuevo : personaje = {
+  nuevo : Personaje = {
     nombre: '',
     poder: 0,
   }

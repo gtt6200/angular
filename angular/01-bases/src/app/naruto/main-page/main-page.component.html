@@ -6,12 +6,8 @@
 <div class="row">
     <div class="col" >
         <h3>Personajes</h3>
-        <hr>
-        <ul>
-            <li *ngFor="let nombre of listarPersonajes; let j=index">
-               {{j+1}} {{nombre.nombre}} - {{nombre.poder | number}}
-            </li>
-        </ul>
+        <app-personajes [data]="listarPersonajes">
+        </app-personajes>
     </div>
     <div class="col">
         <h3>Agregar</h3>
