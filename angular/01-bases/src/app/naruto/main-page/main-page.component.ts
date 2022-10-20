@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { Personaje } from '../interfaces/naruto.interface';
+import { NarutoService } from '../services/naruto.service';
 
 @Component({
   selector: 'app-main-page',
@@ -26,6 +27,6 @@ nuevo : Personaje = {
 }
   agregarNuevoPersonaje(argumento : Personaje){
     this.listarPersonajes.push(argumento);
-    
   }
+  constructor( private NarutoService : NarutoService){}
 }
