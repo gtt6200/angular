@@ -8,6 +8,9 @@ import { GifsPaceComponent } from './gifs-pace/gifs-pace.component';
   declarations: [
     GifsPaceComponent
   ],
+  exports:[
+    GifsPaceComponent
+  ],
   imports: [
     CommonModule
   ]
