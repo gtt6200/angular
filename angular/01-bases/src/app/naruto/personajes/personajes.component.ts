@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Personaje } from '../interfaces/naruto.interface';
+import { Component} from '@angular/core';
 import { NarutoService } from '../services/naruto.service';
 
 @Component({
