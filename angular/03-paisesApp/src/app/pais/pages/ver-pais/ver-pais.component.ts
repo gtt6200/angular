@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PaisService } from '../../services/pais.service';
 
 @Component({
   selector: 'app-ver-pais',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerPaisComponent implements OnInit {
 
-  constructor() { }
+  constructor( 
+    private _activatedRoute : ActivatedRoute,
+    private _paisService  : PaisService
+    ) { }
 
   ngOnInit(): void {
+
+    this._activatedRoute.params
+    .subscribe( ({codigoPais}) =>{
+      console.log(codigoPais);
+      this._paisService.getCodigoPais(codigoPais)
+      .subscribe(pais =>{
+        console.log(pais);
+        
+      })
+    } )
+
   }
 
 }

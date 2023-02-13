@@ -1,8 +1,13 @@
-<h2> Por Pais</h2>
+<h2> Por País</h2>
 <hr>
 <div class="row">
     <div class="col">
-        <app-pais-input (onEnter)="buscar( $event )"></app-pais-input>
+        <!-- los parentesis indican que esta escuchado -->
+        <app-pais-input 
+        (onEnter)="buscar( $event )"
+        (onDebounce)="sugerencias( $event )"
+        placeholder="Buscar por país..."
+        ></app-pais-input>
     </div>
 </div>
 <hr>
@@ -14,6 +19,7 @@ class="alert alert-danger">
 </div>
 <div *ngIf="paises.length > 0" class="row">
     <div class="col">
+        <!-- los corchetes indican que esta emitiendo -->
         <app-pais-tabla [paises]="paises"></app-pais-tabla>
     </div>
 </div>
