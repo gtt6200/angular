@@ -13,7 +13,7 @@ import { ResultadosComponent } from './resultados/resultados.component';
     ResultadosComponent
   ],
   exports:[
-    GifsPaceComponent
+    GifsPaceComponent,
   ],
   imports: [
     CommonModule
