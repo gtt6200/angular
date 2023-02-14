@@ -1,1 +1,52 @@
-<p>ver-pais works!</p>
+<div *ngIf="!pais; else divPais"
+    class="alert alert-info">
+        Esperanding....
+</div>
+
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h2> Pais: <small>{{pais.name}}</small></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h4>Bandera:</h4>
+            <img [src]="pais.flag" alt="" class="img-thumbnail">
+        </div>
+        <div class="col">
+            <h3>Informacion</h3>
+            <ul class="list-group   ">
+                <li class="list-group-item">
+                    <strong>Poblacion: </strong> {{pais.population | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Código Numérico: </strong> {{pais.numericCode}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Código alpha3: </strong> {{pais.alpha3Code}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h3>Traducciones</h3>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.fr}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.br}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.de}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.es}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.fa}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.hr}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.hu}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.it}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.ja}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.nl}}</span>
+            <span class="badge bg-success mt-1 ms-2"> {{pais.translations.pt}}</span>
+        </div>
+    </div>
+    <pre class="mt-5">
+        {{pais | json}}
+    </pre>
+</ng-template>
