@@ -24,4 +24,10 @@ export class PaisService {
     const url = `${this.apiUrl}/alpha/${codigoPais}`;
     return this.http.get<Country>( url ); 
   }
+  buscarRegion( region: string): Observable<Country[]>{
+    const url = `${this.apiUrl}/regionalbloc/${region}?fields=flags,capital,name,population,alpha2code`;
+    console.log(url);
+    
+    return this.http.get<Country[]>(url);
+  }
 }

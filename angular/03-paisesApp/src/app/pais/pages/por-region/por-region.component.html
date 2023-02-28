@@ -1,12 +1,25 @@
 <h2>Buscar por region: <small>{{regionActiva | titlecase}}</small></h2>
 <hr>
 <h5>Seleccione la region</h5>
-<div class="row">
+<div class="row justify-content-center">
     <div class="col">
-        <button [class]="getClaseCSS(btnRegion)" 
+        <div class="p3">
+            <button
+               class="ms-1 mb-1"
+                [class]="getClaseCSS(btnRegion)" 
                 *ngFor="let btnRegion of regiones"
-                (click)="activarRegion(btnRegion)">
+                (click)="activarRegion(btnRegion)"
+                >
             {{btnRegion}}
+
         </button>
+        </div>
+        
+    </div>
+</div>
+<div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <!-- los corchetes indican que esta emitiendo -->
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
     </div>
 </div>
