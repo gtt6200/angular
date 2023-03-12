@@ -12,8 +12,10 @@ import { VentasModule } from './ventas/ventas.module';
 //CAMBIAR EL LOCAL DE LA APP
 //esto es para cambiar todos lod formatos al pais seleccionado
 import localeEsMX from '@angular/common/locales/es-MX';
+import localeJa from '@angular/common/locales/ja';
 import { registerLocaleData } from "@angular/common";
 registerLocaleData(localeEsMX);
+registerLocaleData(localeJa);
 
 @NgModule({
   declarations: [
