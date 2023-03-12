@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 //modulo de las rutas
 import { AppRouterModule } from './app-router.module';
@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { VentasModule } from './ventas/ventas.module';
 
+//CAMBIAR EL LOCAL DE LA APP
+//esto es para cambiar todos lod formatos al pais seleccionado
+import localeEsMX from '@angular/common/locales/es-MX';
+import { registerLocaleData } from "@angular/common";
+registerLocaleData(localeEsMX);
 
 @NgModule({
   declarations: [
@@ -20,7 +25,10 @@ import { VentasModule } from './ventas/ventas.module';
     SharedModule,
     VentasModule
   ],
-  providers: [],
+  providers: [
+    //esta parte selecciona a los import del localeEsMX y la funcion
+    { provide: LOCALE_ID, useValue: 'es-MX' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

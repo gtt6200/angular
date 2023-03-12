@@ -30,14 +30,22 @@
     <div class="col-6">
         <p-card>
             <ul>
-                <li></li>
+                <li>fecha</li>
+                <li>fecha | date</li>
+                <li>fecha | date:'short'</li>
+                <li>fecha | date:'long'</li>
+                <li>fecha | date:'Personalizado date:'EEE/MMMM/YY''</li>
             </ul>
         </p-card>
     </div>
     <div class="col-6">
         <p-card>
             <ul>
-                <li></li>
+                <li>{{fecha}}</li>
+                <li>{{fecha | date}}</li>
+                <li>{{fecha | date:'short'}}</li>
+                <li>{{fecha | date:'long'}}</li>
+                <li>{{fecha | date:'EEE/MMMM/YY'}}</li>
             </ul>
         </p-card>
     </div>
