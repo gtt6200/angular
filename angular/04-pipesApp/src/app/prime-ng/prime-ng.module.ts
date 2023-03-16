@@ -10,7 +10,7 @@ import { MenubarModule } from "primeng/menubar";
   exports:[
     ButtonModule,
     CardModule,
-    MenubarModule
+    MenubarModule,
   ]
 
 })
