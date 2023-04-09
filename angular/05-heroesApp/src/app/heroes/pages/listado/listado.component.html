@@ -1,8 +1,15 @@
 <p>listado works!</p>
-<ul>
-    <li><a routerLink="/404">Inicio</a></li>
-    <li><a routerLink="/heroes/agregar">agregar</a></li>
-    <li><a routerLink="/heroes/editar">editar</a></li>
-    <li><a routerLink="/heroes/buscar">buscar</a></li>
+<mat-divider></mat-divider>
+<br>
+    <div fxLayout="row wrap"
+         fxLayout.xs="column"
+         fxLayoutAlign="center"
+         fxLayoutGap="20px">
+        <div fxFlex="20" 
+             fxFlex.lg="15"
+             fxFlex.sm="30"
+            *ngFor="let nombre of heroe">
+            <app-heroe-tarjeta [nombre]="nombre"></app-heroe-tarjeta>
+        </div>
+    </div>  
 
-</ul>
