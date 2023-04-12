@@ -1,1 +1,69 @@
-<p>dinamicos works!</p>
+<h2>Template: <span>Dianamicos</span></h2>
+<hr>
+
+<form   action="" 
+        (ngSubmit)="guardar()"
+        autocomplete="off"
+        #miFormulario="ngForm">
+        <!-- Nombre -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+            <input type="text"
+                    class="form-control"
+                    [ngModel]="persona.nombre"
+                    name="nombre"
+                    placeholder="nombre"
+                    required="">
+            <span class="form-text text-danger"
+                    *ngIf="miFormulario.controls['nombre']?.errors">Debe ser de 3 letras</span>
+        
+        </div>
+    </div>
+<!-- Agregar favorito -->
+    <div class="mb-3 row">
+        <label for="" class="col-sm-3 col-form-label">Agregar</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input type="text" 
+                        class="form-control" 
+                        placeholder="Agregar Fav"
+                        [(ngModel)]="nuevoJuego"
+                        name="nuevoJuego"
+                        (keyup.enter)="agregar()">
+                <button class="btn btn-outline-primary"
+                        type="button"
+                        (click)="agregar()">anadir</button>
+            </div>
+        </div>
+    </div>
+    <!-- Lista de juegos fav -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Favoritos</label>
+            <div class="col-sm-9" >
+                <div class="input-group mb-1" *ngFor="let juego of persona.favoritos; let i = index">
+                <input  type="text" 
+                        [(ngModel)]="juego.nombre"
+                        name="favorito {{i}}"
+                        class="form-control ">
+                 <button class="btn btn-outline-danger"
+                         type="button"
+                         (click)="eliminar(i)">borrar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary float-end"
+                    (click)="guardar()"
+                    [disabled]="miFormulario.invalid">
+                Guardar
+            </button>
+        </div>
+    </div>
+</form>
+
+<span>Persona</span>
+<pre> {{persona | json}} </pre>
