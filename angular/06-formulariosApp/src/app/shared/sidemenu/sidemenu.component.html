@@ -14,3 +14,23 @@
         routerLinkActive="active">{{rutas.texto}}</li>
     
 </ul>
+
+<h2 class="mt-3">Validaciones</h2>
+<ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let auth of authMenu"
+        [routerLink]="auth.ruta"
+        routerLinkActive="active">
+        {{auth.texto}}
+    </li>
+</ul>
+<!-- AuthMenu 
+Modulo auth.module y los routing
+configurar rutas login y validaciones
+registro component
+'registro'
+login component
+'login'
+
+lazyload de ese modulo
+-->
