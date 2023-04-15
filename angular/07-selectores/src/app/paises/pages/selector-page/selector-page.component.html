@@ -1,0 +1,64 @@
+<h1 class="mt-5">Selectores Anidados</h1>
+
+<form action="" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+    
+    <!-- Selector region -->
+    <div class="row mb-3">
+        <div class="col">
+            <label for="" class="form-label">Continente:</label>
+            <select class="form-control"
+                    formControlName="region">
+                <option value=""> ---Seleccione Continente--- </option>
+                <option *ngFor="let continentes of regiones"
+                        [value]="continentes | lowercase"> {{continentes}} </option>
+            </select>
+        </div>
+    </div>
+    <!-- Selector paises -->
+    <div class="row mb-3" *ngIf="paises.length != 0">
+        <div class="col">
+            <label for="" class="form-label">Paises:</label>
+            <select class="form-control"
+                    formControlName="pais">
+                <option value=""> ---Seleccione Pais--- </option>
+                <option *ngFor="let pais of paises"
+                        [value]="pais.alpha3Code"> {{pais.name}} </option>
+            </select>
+        </div>
+    </div>
+    <!-- Selector fronteras -->
+    <div class="row mb-3" *ngIf="alpha.length > 0">
+        <div class="col">
+            <label for="" class="form-label">Fronteras:</label>
+            <select class="form-control"
+                    formControlName="frontera"
+                    >
+                <option value=""> ---Seleccione Frontera--- </option>
+                <option *ngFor="let pais of alpha"
+                        [value]="pais.alpha3Code"> {{pais.name}} </option>
+            </select>
+        </div>
+    </div>
+    <!-- cargando -->
+    <div class="row" *ngIf="cargando">
+        <div class="col">
+            <div class="alert alert-primary">
+                Cargando...
+            </div>
+        </div>
+    </div>
+    <!-- Button -->
+    <div class="row">
+        <div class="col">
+            <button type="submit" 
+                    class="btn btn-primary float-end">
+                Seleccionar
+            </button>
+        </div>
+    </div>
+</form>
+
+<br>
+<h5>formulario</h5>
+<pre> Valid: {{miFormulario.valid}} </pre>
+<pre> {{miFormulario.value | json}} </pre>
