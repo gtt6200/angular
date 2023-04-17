@@ -1,0 +1,18 @@
+<h1>Redes Sociales</h1>
+<hr>
+
+<div class="alert alert-info" *ngIf="doughnutChartLabels.length === 0; else divGrafica">
+    <h5>Cargando Data...</h5>
+</div>
+
+<div class="row" >
+    <ng-template #divGrafica>
+        <div class="col">
+            <canvas baseChart class="chart"
+                    [data]="doughnutChartData"
+                    [type]="doughnutChartType">
+            </canvas>
+                </div>
+    </ng-template>
+    
+</div>

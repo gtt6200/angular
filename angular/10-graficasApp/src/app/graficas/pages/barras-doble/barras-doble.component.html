@@ -1,0 +1,15 @@
+<h1>Dos Graficas</h1>
+<hr>
+<div class="row">
+    <div class="col-6 col-md-6 col-sm-12">
+        Grafica 1
+        <app-grafica-barra
+            [pie]="true"
+            [barChartData]="proveedoresData"
+            [barChartOptions]="lineOptions">></app-grafica-barra>
+    </div>
+    <div class="col-6 col-md-6 col-sm-12">
+        Grafica 2
+        <app-grafica-barra></app-grafica-barra>
+    </div>
+</div>
