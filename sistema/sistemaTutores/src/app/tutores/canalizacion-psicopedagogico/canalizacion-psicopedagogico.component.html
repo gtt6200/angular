@@ -1,0 +1,156 @@
+<br>
+<div class="grid">
+    <div class="col-12">
+        <p-fieldset legend="Nuevo Reporte" [toggleable]="true">
+            <h2>Canalizacion a Consultorio Psicopedagógico</h2>
+            <form [formGroup]="miFormulario">
+                <div class="grid">
+                    <div class="col-12 md:col-4 lg:col-3">
+                        <h4>Grupo del Alumno</h4>
+                        <div class="grid">
+                            <div class="col-12 md:col-4 lg:col-3">
+                                <p-dropdown [options]="grupo" formControlName="grupos" optionLabel="name" placeholder="Seleccione un Grupo" [showClear]="true"></p-dropdown>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col-12 md:col-4 lg:col-3">
+                        <h4>Nombre del Alumno</h4>
+                        <div class="grid">
+                            <div class="col-12 md:col-4 lg:col-3">
+                                <p-dropdown [options]="alumno" formControlName="alumnoSelected" optionLabel="nombre" placeholder="Seleccione el alumno" [showClear]="true"></p-dropdown> 
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-12 md:col-4 lg:col-3">
+                        <h4>Nombre del Tutor</h4>
+                        <div class="grid">
+                            <div class="">
+                                <p-chip [label]="tutor|titlecase" styleClass="mr-2 custom-chip"></p-chip>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+                <div class="grid text-layout">
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <h4></h4>
+                        <p-card header="Aspectos Personales" subheader="">
+                            <div class="grid">
+                                <p>Estado de animo depresivo</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="animo" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <p>Problemas de autoestima y auto concepto</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="autoestima" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <p>Problemas de ansiedad y/o angustia</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="ansiedad" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                            
+                        </p-card>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <h4></h4>
+                        <p-card header="Aspectos Sociologicos" subheader="">
+                            <div class="grid">
+                                <p>Problemas de indiciplina</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="indiciplica" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <p>Problemas de Integración</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="integracion" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <p>Problemas Familiares</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="pFamiliares" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                            
+                        </p-card>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <h4></h4>
+                        <p-card header="Aspectos Academicos" subheader="">
+                            <div class="grid">
+                                <p>Dificultad de Concentración</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="concentracion" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <p>Falta de motivación Académica</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="motivacion" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <p>Bajo rendimiento academico</p>
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <p-selectButton [options]="stateOptions" formControlName="renAcademico" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+                            </div>
+                        </p-card>
+                    </div>
+                    
+                </div>
+                <div class="grid layout-text">
+                    <div class="col-12">
+                        <p-card header="Observaciones Generales">
+                            <textarea formControlName="obsGrales" class="col-12" rows="5" cols="30" pInputTextarea></textarea>
+                        </p-card>
+                    </div>
+                </div>
+                    <div class="card layout-text">
+                        <div class="flex flex-row-reverse flex-wrap card-container">
+                            <button pButton pRipple [disabled]="miFormulario.invalid" type="button" label="Guardar" icon="pi pi-save" class="flex align-items-center p-2 m-2"></button>
+                            <button pButton pRipple type="button" label="Editar" icon="pi pi-file-edit" class="p-button-warning p-2 m-2"></button>
+                        </div>
+                    </div>
+            </form>
+            
+        </p-fieldset>
+    </div>
+</div>
+<h3>Values: </h3>
+<pre> {{miFormulario.value | json}} </pre>
+<pre>Valido:  {{miFormulario.valid}} </pre>
+<div class="grid">
+    <div class="col-12">
+        <p-fieldset legend="Mostrar Tabla" [toggleable]="true">
+            <p-table [value]="products" [tableStyle]="{'min-width': '10rem'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Accion</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{product.code}}</td>
+                        <td>{{product.name}}</td>
+                        <td>
+                            <p-splitButton
+                            label="Guardar"
+                            icon="pi pi-plus"
+                            (onClick)="save('info')"
+                            [model]="items"
+                          ></p-splitButton>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-fieldset>
+    </div>
+</div>

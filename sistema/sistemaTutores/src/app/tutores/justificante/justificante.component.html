@@ -1,0 +1,87 @@
+<br>
+<div class="card">
+    <div class="col-12">
+        <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
+            <p-card header="Justificantes">
+                <h4>Datos del Alumno</h4>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <p>Fecha</p>
+                                <p-calendar formControlName="fecha" [showIcon]="true" inputId="time" class="w-full"></p-calendar></div>
+                            <div class="field col">
+                                <p>Grupo</p>
+                                <p-dropdown [options]="grupo" formControlName="seleccionGrupos" optionLabel="name" placeholder="Seleccione un Grupo" [showClear]="true"></p-dropdown>
+                            </div>
+                            <div class="field col">
+                                <p>Nombre</p>
+                                <p-dropdown [options]="alumno" formControlName="alumnoSelected" optionLabel="nombre" placeholder="Seleccione el alumno" [showClear]="true"></p-dropdown>           
+                            </div>
+                        </div>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <p>Carrera:</p>
+                                <p-chip label="Tecnologías de la Información y Comunicación" styleClass="mr-2 custom-chip"></p-chip>
+                            </div>
+                            <div class="field col">
+                                <p>Turno</p>
+                                <p-dropdown [options]="alumno" formControlName="turnoSelected" optionLabel="turno" placeholder="Seleccione el turno" [showClear]="true"></p-dropdown>           
+                            </div>
+                            <div class="field col">
+                                <p>Días a Justificar</p>
+                                <p-calendar formControlName="variasFechas" [showIcon]="true" selectionMode="multiple" [readonlyInput]="true" inputId="multiple"></p-calendar>
+                            </div>
+                        </div>
+                        <div class="formgrid col">
+                            <p>Razones  </p>
+                            <textarea class="col-12" rows="5" cols="30" pInputTextarea formControlName="razones"></textarea>
+                        </div>
+                        <div class="card layout-text">
+                            <div class="flex flex-row-reverse flex-wrap card-container">
+                                <button pButton 
+                                        pRipple 
+                                        type="submit" 
+                                        label="Guardar" 
+                                        icon="pi pi-save" 
+                                        (click)="guardar()"
+                                        class="flex align-items-center p-2 m-2"
+                                        [disabled]="miFormulario.invalid"></button>
+                                <button pButton pRipple type="button" label="Editar" icon="pi pi-file-edit" class="p-button-warning p-2 m-2"></button>
+                            </div>
+                        </div>
+            </p-card>
+        </form>
+
+<h3>Values</h3>
+<pre> {{miFormulario.value | json}} </pre>
+<pre> Es valido: {{miFormulario.valid}} </pre>
+        <br>
+        <p-fieldset legend="Mostrar" [toggleable]="true">
+            <p-table [value]="products" [tableStyle]="{'min-width': '10rem'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Materia</th>
+                        <th>Profesor</th>
+                        <th>Firma</th>
+                        <th>Accion</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{product.materia}}</td>
+                        <td>{{product.description}}</td>
+                        <td></td>
+                        <td>
+                            <p-splitButton
+                            label="Guardar"
+                            icon="pi pi-plus"
+                            (onClick)="save('info')"
+                            [model]="items"
+                          ></p-splitButton>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-fieldset>
+    </div>
+</div>
+

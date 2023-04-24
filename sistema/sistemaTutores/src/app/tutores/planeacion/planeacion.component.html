@@ -1,0 +1,108 @@
+<form [formGroup]="miFormulario">
+    <p-fieldset legend="Parte 1" [toggleable]="true">
+    <div class="grid p-fluid">
+        <div class="col-12 md:col-12">
+            <!-- <h2>Parte 1</h2> -->
+            <h4>Información General</h4>
+            <div class="grid formgrid">
+				<div class="col-12 mb-2 lg:col-12 lg:mb-0">
+					<p>Fecha de Elaboración</p>
+                    <p-calendar formControlName="fecha" [showIcon]="true" inputId="time" class="w-full"></p-calendar>
+				</div>
+				<div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                    <p>Instrumentación didactica del Periodo</p>
+                    <p-selectButton [options]="dateOptions" formControlName="periodo" optionLabel="label" optionValue="value"></p-selectButton>
+				</div>
+				<div class="col-12 mb-2 lg:col-12 lg:mb-0">
+					
+                    <p>Grupo</p>
+                    <p-dropdown [options]="grupo" formControlName="seleccionGrupos" optionLabel="name" placeholder="Seleccione un Grupo" [showClear]="true"></p-dropdown>
+                
+				</div>
+                <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                    <p>Nombre del Tutor</p>
+                    <p-chip [label]="tutor|titlecase" styleClass="mr-2 custom-chip"></p-chip>
+                </div>
+			</div>
+            <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                <p>Carrera</p>
+                <p-chip [label]="carrera|titlecase" styleClass="mr-2 custom-chip"></p-chip>
+            </div>
+            <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                <p>Numero Inicial de Estudiantes</p>
+                <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                    <p>Hombres</p>
+                    <p-inputNumber formControlName="hombres" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100"> </p-inputNumber>
+                </div>
+                <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                    <p>Mujeres</p>
+                    <p-inputNumber formControlName="mujeres" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100"> </p-inputNumber>
+                </div>
+                <p>Total</p>
+                <p-chip label='21' styleClass="mr-2 custom-chip"></p-chip>
+            </div>
+            <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                <h4>Numero de Sesiones de Tutoria Grupal</h4>
+                <p-inputNumber formControlName="sesiones" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100"> </p-inputNumber>
+            </div>
+            <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                <h5>Descripcion del Grupo</h5>
+                <p>Comportamiento grupa, fortalezas, areas de oportunidad y necesidades del grupo:</p>
+                <textarea class="col-12" rows="5" cols="30" pInputTextarea formControlName="desGrupo"></textarea>
+            </div>
+            <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                <h5>Propositos generales de la tutoria grupal para el cuatrimestre actual</h5>
+                <p></p>
+                <textarea class="col-12" rows="5" cols="30" pInputTextarea formControlName="propositosGrales"></textarea>
+            </div>
+            <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                <h5>Temas a cubrir durante el cuatrimestre para lograr el proposito</h5>
+                <p></p>
+                <textarea class="col-12" rows="5" cols="30" pInputTextarea formControlName="temas"></textarea>
+            </div>
+            <div class="col-12 mb-2 lg:col-12 lg:mb-0">
+                <h5>Evidencias y productos con los que se evidenciara el cumplimiento del proposito final de la tutoria</h5>
+                <p></p>
+                <textarea class="col-12" rows="5" cols="30" pInputTextarea formControlName="evidencias"></textarea>
+            </div>
+        </div>
+    </div>
+</p-fieldset>
+<br>
+<p-fieldset legend="Parte 2" [toggleable]="true">
+    <div class="card p-fluid">
+        <h5>Plan de Accion de Tutoria Grupal</h5>
+        <div class="p-formgrid grid">
+            <div class="field col xl:col-4 md:col-6 xs:col-12">
+                <label >Tipo de Actividad</label>
+                <input pInputText formControlName="tipo" type="text" />
+            </div>
+            <div class="field col xl:col-4 md:col-6 xs:col-12">
+                <label>Descripcion de la Actividad</label>
+                <input pInputText formControlName="desActividad" type="text" />
+            </div>
+            <div class="field col xl:col-4 md:col-6 xs:col-12">
+                <label>Numero de Sesiones</label>
+                <input pInputText formControlName="noSesiones" type="number" />
+            </div>
+            <div class="field col xl:col-4 md:col-6 xs:col-12">
+                <label>Fechas de Termino</label>
+                <p>Programada</p>
+                <p-calendar formControlName="dateProgramada" [showIcon]="true" inputId="time" class="w-full"></p-calendar>
+            </div>
+            <div class="field col xl:col-4 md:col-6 xs:col-12">
+                <label><br></label>
+                <p>Real</p>
+                <p-calendar formControlName="dateReal" [showIcon]="true" inputId="time" class="w-full"></p-calendar>
+            </div>
+            <div class="field col xl:col-4 md:col-6 xs:col-12">
+                <label>Observaciones</label>
+                <textarea class="col-12" rows="1" cols="30" pInputTextarea formControlName="ptObservaciones"></textarea>
+            </div>
+            <p-button pRipple label="Añadir" icon="pi pi-plus" iconPos="right"></p-button>
+        </div>
+    </div>
+</p-fieldset>
+
+</form>
+<pre> {{miFormulario.value | json}} </pre>

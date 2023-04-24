@@ -1,0 +1,152 @@
+<br>
+<div class="grid">
+    <div class="col-12">
+        
+            <p-fieldset legend="Nuevo Reporte" [toggleable]="true">
+                <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
+                <h2>Formato Asesoría Tutoría</h2>
+                <div class="grid">
+                    <div class="col-12 md:col-6 lg:col-6 xl:col-3 sm:col-12">
+                        <h4>Grupo del Alumno</h4>
+                        <div class="grid">
+                            <div class="col-12 md:col-6 lg:col-6 xl:col-3 sm:col-12">
+                                <p-dropdown [options]="grupo" formControlName="seleccionGrupos" optionLabel="name" placeholder="Seleccione un Grupo" [showClear]="true"></p-dropdown>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col-12 md:col-6 lg:col-6 xl:col-3 sm:col-12">
+                        <h4>Periodo</h4>
+                        <div class="grid">
+                            <div>
+                                <p-selectButton [options]="dateOptions" formControlName="periodo" optionLabel="label" optionValue="value"></p-selectButton>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col-12 md:col-6 lg:col-6 xl:col-3 sm:col-12">
+                        <h4>Tipo de Sesion</h4>
+                        <div class="grid">
+                            <div>
+                                <!-- <p-dropdown [options]="alumno" [(ngModel)]="alumnoSelected" optionLabel="nombre" placeholder="Seleccione el alumno" [showClear]="true"></p-dropdown>  -->
+                                <p-selectButton [options]="sessionOptions" formControlName="tipoSesion" optionLabel="label" optionValue="value"></p-selectButton>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-12 md:col-6 lg:col-6 xl:col-3 sm:col-12">
+                        <h4>Finalidad</h4>
+                        <div class="grid">
+                            <div class="">
+                                <!-- <p-chip [label]="tutor|titlecase" styleClass="mr-2 custom-chip"></p-chip> -->
+                                <p-selectButton [options]="finalOptions" formControlName="finalidad" optionLabel="label" optionValue="value"></p-selectButton>
+
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+                <div class="grid text-layout">
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <h4></h4>
+                        <p-card subheader="">
+                            <div class="formgrid grid">
+                                <p>Fecha y hora de la sesión</p>
+                                <div class="field col-12 md:col-6">
+                                    <label for="time"></label>
+                                    <p-calendar formControlName="fechaSesion" [showIcon]="true" [showTime]="true" inputId="time"></p-calendar>
+                                    <br>
+                                </div>
+                            <br>
+                            </div>
+                            <div class="formgrid grid">
+                                <p>Duración de la sesión</p>
+                                <div class="field col-12 md:col-6">
+                                    <p-calendar formControlName="duracionTimer" [timeOnly]="true" inputId="timeonly"></p-calendar>
+                                </div>
+                            </div>
+                            <div class="formgrid grid">
+                                <p>Nombre del alumno</p>
+                                <div class="field col-12 md:col-3">
+                                    <p-dropdown [options]="alumno" formControlName="alumnoSelected" optionLabel="nombre" placeholder="Seleccione el alumno" [showClear]="true"></p-dropdown> 
+                                </div>
+                            </div>
+                        </p-card>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <h4></h4>
+                        <p-card subheader="">
+                            <div class="grid">
+                                <p>Temas a Tratar</p>
+                                <div class="col-12">
+                                    <textarea formControlName="temas" class="col-12" rows="1" cols="30" pInputTextarea></textarea>                            </div>
+                            </div>
+                            <div class="grid">
+                                <p>Observaciones de la persona que imparte la asesoria</p>
+                                <div class="col-12">
+                                    <textarea formControlName="observacionesAsesor" class="col-12" rows="1" cols="30" pInputTextarea></textarea>                            </div>
+                            </div>
+                            
+                        </p-card>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <h4></h4>
+                        <p-card header="Impartida por:" subheader="">
+                        <p-chip [label]="tutor|titlecase" styleClass="mr-2 custom-chip"></p-chip>
+
+                        </p-card>
+                    </div>
+                    
+                </div>
+                <div class="grid layout-text">
+                    <div class="col-12">
+                        <p-card header="Observaciones Generales">
+                            <textarea formControlName="obsGrales" class="col-12" rows="5" cols="30" pInputTextarea></textarea>
+                        </p-card>
+                    </div>
+                </div>
+                    <div class="card layout-text">
+                        <div class="flex flex-row-reverse flex-wrap card-container">
+                            <button pButton pRipple
+                                    type="submit" 
+                                    label="Guardar" 
+                                    icon="pi pi-save" 
+                                    class="flex align-items-center p-2 m-2"
+                                    [disabled]="miFormulario.invalid"></button>
+                            <button pButton pRipple type="button" label="Editar" icon="pi pi-file-edit" class="p-button-warning p-2 m-2"></button>
+                        </div>
+                    </div>
+                </form>
+            </p-fieldset>
+        
+    </div>
+</div>
+<h3>Values</h3>
+<pre> {{miFormulario.value | json}} </pre>
+<pre> Es valido: {{miFormulario.valid}} </pre>
+<div class="grid">
+    <div class="col-12">
+        <p-fieldset legend="Mostrar Tabla" [toggleable]="true">
+            <p-table [value]="products" [tableStyle]="{'min-width': '10rem'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Accion</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{product.code}}</td>
+                        <td>{{product.name}}</td>
+                        <td>
+                            <p-splitButton
+                            label="Guardar"
+                            icon="pi pi-plus"
+                            (onClick)="save('info')"
+                            [model]="items"
+                          ></p-splitButton>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-fieldset>
+    </div>
+</div>
+
